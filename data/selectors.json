@@ -20,6 +20,7 @@
     "editNameField": "[name='edit']",
     "editNameFieldLabel": "label",
     "blackBtn": ".btn-black",
-    "errorMsg": ".alert"
+    "errorMsg": ".alert",
+    "defaultCounterFirst": ".container-fluid"
   }
 }

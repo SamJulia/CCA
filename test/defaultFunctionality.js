@@ -1,6 +1,8 @@
+import { inputNumber } from "../helpers/inputNumber";
+import { addSubBtnsCount } from "../helpers/BlackBtsCounter";
 const selectorCnt = require ('../data/selectors.json').counter;
 const expectedDCF = require ('../data/expected.json').defaultCounterFunctionality;
-const inputNumber = require ('./../helpers/inputNumber');
+
 describe('Default counter functionality', function () {
     it('TC-040 Subtract 1 gives -1', function () {
         browser.url('');
@@ -20,18 +22,36 @@ describe('Default counter functionality', function () {
         const result = $(selectorCnt.errorMsg).isDisplayed();
         expect(result).toEqual(false);
     })
-    it('TC-0432 ULF accept 9', function () {
+    it('TC-043 ULF accept 9', function () {
         inputNumber('right', expectedDCF.inputMax);
         const result = $(selectorCnt.errorMsg).isDisplayed();
         expect(result).toEqual(false);
     })
-    /*
-        it('TC-044 LLF = 1 and ULF = 1 gives 2 black buttons', function () {
-            browser.pause(1000);
-            //inputNumber('left', expectedDCF.inputMin);
-            inputNumber('right', expectedDCF.inputMin);
-            const actual = $$(selectorCnt.blackBtn).filter(el => el.isDisplayed()).length;
-            expect(actual).toEqual(expectedDCF.countValueTC041);
-        })
-    */
+
+    it('TC-044 LLF = 1 and ULF = 1 gives 2 black buttons', function () {
+        $(selectorCnt.lowerInputField).setValue(expectedDCF.inputMin);
+        $(selectorCnt.upperInputField).setValue(expectedDCF.inputMin);
+        const allElements = $$(selectorCnt.blackBtn);
+        expect(addSubBtnsCount(allElements).length).toEqual((expectedDCF.blackBtnsCount));
+    })
+
+    it('TC-045 LLF = 9 and ULF = 9 gives 2 black buttons', function () {
+        $(selectorCnt.upperInputField).setValue(expectedDCF.inputMax);
+        $(selectorCnt.lowerInputField).setValue(expectedDCF.inputMax);
+        const allElements = $$(selectorCnt.blackBtn);
+        expect(addSubBtnsCount(allElements).length).toEqual((expectedDCF.blackBtnsCount));
+    });
+
+    it('TC-046 Reset button works', function () {
+        $(selectorCnt.resetBtn).click();
+        const actual = $(selectorCnt.countValue).getText();
+        expect(actual).toEqual(expectedDCF.countValue);
+    });
+
+    it('TC-047 Delete button works', function () {
+        $(selectorCnt.deleteBtn).click();
+        const actual = $(selectorCnt.defaultCounterFirst).isDisplayed();
+        expect(actual).toEqual(false);
+    });
+
 });

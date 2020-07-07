@@ -17,12 +17,14 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
+
         './test/elements.js',
-        './test/defaultfunctionality.js'
+        './test/defaultFunctionality.js'
     ],
     // Patterns to exclude.
     exclude: [
-        // 'path/to/excluded/files'
+        //'./test/elements.js'
+        //'./test/defaultFunctionality.js'
     ],
     //
     // ============
@@ -90,7 +92,8 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+
+    baseUrl: 'https://likejean.github.io/homework-5/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

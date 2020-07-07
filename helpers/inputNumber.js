@@ -1,5 +1,5 @@
 const selectorCnt = require ('../data/selectors.json').counter;
-function inputNumber (str, value) {
+export function inputNumber (str, value) {
     if (str === "left") {
         if ($(selectorCnt.lowerLimitField).isDisplayed()) {
             $(selectorCnt.lowerLimitField).click();
@@ -16,4 +16,3 @@ function inputNumber (str, value) {
         browser.keys(value);
     }
 }
-module.exports = inputNumber;

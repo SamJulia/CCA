@@ -3,6 +3,7 @@
     "header": "Counters",
     "totalResult": "Total: 0",
     "addNameField": "Counter Name",
+    "editNameFieldLabel": "Edit Counter Title:",
     "addNameFieldLabel": "Enter Counter Title:",
     "defaultValueField": "50",
     "defaultValueFieldLabel": "Enter Initial Count:",
@@ -18,15 +19,20 @@
     "deleteBtn": "DELETE",
     "resetBtn": "RESET",
     "editNameField": "Default Counter",
-    "editNameFieldLabel": "Edit Counter Title:",
     "defaultNumberBlackBtn": 6,
-    "blackBtn":  ["-1", "-2", "-3", "1", "2", "3"]
+    "blackBtn":  ["-1", "-2", "-3", "1", "2", "3"],
+    "defaulValuetSubBtns": ["-1", "-2", "-3"],
+    "defaulValuetAddBtns": ["1", "2", "3"]
   },
   "defaultCounterFunctionality": {
     "countValue": "0",
+    "defCountValueLLF": "1",
+    "defCountValueULF": "3",
     "countValueTC040": "-1",
     "countValueTC041": "2",
     "inputMin": "1",
-    "inputMax": "9"
+    "inputMax": "9",
+    "blackBtnsCount": 2,
+    "nForBlackBtnCountTC033": 3
   }
 }
